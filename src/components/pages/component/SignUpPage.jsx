@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SocialLogIn from "./SocialLogin";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 function SignUpPage() {
+  const { registerUser, user, auth } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -35,7 +37,7 @@ function SignUpPage() {
     if (name && email && password) {
       try {
         await registerUser(email, password);
-        await handleUpdateProfile(name, image);
+
         Swal.fire.success("Registration and profile update successful");
       } catch (error) {
         Swal.fire.error(

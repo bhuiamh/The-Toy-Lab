@@ -6,12 +6,10 @@ import {
   onAuthStateChanged,
   signOut,
   signInWithEmailAndPassword,
-  updateProfile,
 } from "firebase/auth";
-import app from "./../firebase/firebase.config";
 import { useState } from "react";
 import { useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -47,10 +45,7 @@ const AuthProvider = ({ children }) => {
     loginUser,
   };
   return (
-    <AuthContext.Provider value={authInfo}>
-      {children}
-      <Toaster></Toaster>
-    </AuthContext.Provider>
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 
