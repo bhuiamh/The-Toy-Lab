@@ -15,13 +15,17 @@ const SocialLogIn = () => {
   return (
     <div className="mt-9">
       <div className="divider">Or login with social media</div>
-      <div className="text-center">
-        <button
-          onClick={handleGoogleSignIn}
-          className="btn btn-circle btn-outline"
-        >
-          G
-        </button>
+      <div className="flex mx-3 gap-2">
+        <div className="w-full">
+          <button onClick={handleGoogleSignIn} className="btn btn-outline">
+            Login With Google
+          </button>
+        </div>
+        <div className="w-full">
+          <button onClick={handleGoogleSignIn} className="btn btn-outline">
+            Login With Github
+          </button>
+        </div>
       </div>
     </div>
   );

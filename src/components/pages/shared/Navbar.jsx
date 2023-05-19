@@ -1,13 +1,21 @@
 import React, { useContext, useState } from "react";
 import logo from "../../../assets/logo.png";
 import { Link } from "react-router-dom";
+import Tooltip from "@mui/material/Tooltip";
+
 import { AuthContext } from "../../../providers/AuthProvider";
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [showMenu, setShowMenu] = useState(false);
 
   const handleMenuClick = () => {
     setShowMenu(!showMenu);
+  };
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((err) => {});
   };
 
   return (
@@ -68,31 +76,44 @@ const Navbar = () => {
             <Link to="/blog"> Blogs</Link>
           </button>
         </div>
-        <div className="flex-none">
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <p>{user?.displayName}</p>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <p>
-                  <Link to="/login">Login</Link>
-                </p>
-              </li>
-            </ul>
+        {user ? (
+          <div className="flex-none">
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <Tooltip title={user?.displayName}>
+                    <img
+                      src={user?.photoURL}
+                      alt="User Photo"
+                      width="50"
+                      height="auto"
+                      className="rounded-circle border border-danger"
+                    />
+                  </Tooltip>
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <p>{user?.displayName}</p>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <button onClick={handleLogOut}>Log Out</button>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
+        ) : (
+          <button className="btn btn-ghost">
+            {" "}
+            <Link to="/login">Login</Link>
+          </button>
+        )}
       </div>
     </div>
   );

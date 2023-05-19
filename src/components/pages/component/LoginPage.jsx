@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const LoginPage = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, user } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -15,6 +15,7 @@ const LoginPage = () => {
     if ((email, password)) {
       loginUser(email, password)
         .then((result) => {
+          console.log(user.photoURL);
           Swal.fire("Login Successful");
         })
         .catch((error) => {
