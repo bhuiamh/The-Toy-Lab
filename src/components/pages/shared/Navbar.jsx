@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../../assets/logo.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
   const [showMenu, setShowMenu] = useState(false);
 
   const handleMenuClick = () => {
@@ -78,10 +80,7 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
+                <p>{user?.displayName}</p>
               </li>
               <li>
                 <a>Settings</a>

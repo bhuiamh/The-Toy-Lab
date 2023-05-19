@@ -91,17 +91,17 @@ function SignUpPage() {
                 placeholder="xxxxxxxx"
                 className="input input-bordered"
                 required
-              />
+              />{" "}
+              <button
+                className={`btn  ${
+                  showPassword ? "btn-secondary" : "btn-primary"
+                }`}
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
             </label>
-            <button
-              className={`btn ${
-                showPassword ? "btn-secondary" : "btn-primary"
-              }`}
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? "Hide" : "Show"}
-            </button>
           </div>
 
           <button

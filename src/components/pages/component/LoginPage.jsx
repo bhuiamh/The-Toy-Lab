@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SocialLogIn from "./SocialLogin";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../providers/AuthProvider";
 
-function LoginPage() {
+const LoginPage = () => {
+  const { loginUser } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleLogin = (event) => {
     event.preventDefault();
     if ((email, password)) {
-      //   loginUser(email, password)
-      //     .then((result) => {
-      //       toast.success("Login Successful");
-      //     })
-      //     .catch((error) => {
-      //       toast.error("Failed", ":", error.message);
-      //     });
+      loginUser(email, password)
+        .then((result) => {
+          Swal.fire("Login Successful");
+        })
+        .catch((error) => {
+          Swal.fire("Failed", ":", error.message);
+        });
       console.log(email, password);
     }
   };
@@ -70,6 +73,6 @@ function LoginPage() {
       </div>
     </div>
   );
-}
+};
 
 export default LoginPage;
