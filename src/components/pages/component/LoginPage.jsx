@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SocialLogIn from "./SocialLogin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../providers/AuthProvider";
 
@@ -24,6 +24,12 @@ const LoginPage = () => {
       console.log(email, password);
     }
   };
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user]);
   return (
     <div className="flex my-3 md:my-7 justify-center">
       <div className="w-full max-w-md p-6 rounded-lg shadow-md">
