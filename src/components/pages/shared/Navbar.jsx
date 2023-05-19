@@ -24,40 +24,42 @@ const Navbar = () => {
         <div className="flex-1">
           <img src={logo} alt="" className="h-10 md:h-24 w-auto" />
         </div>
-        <div className="flex md:hidden">
-          <button className="btn btn-ghost" onClick={handleMenuClick}>
+        <div className="flex md:hidden dropdown dropdown-end relative">
+          <button tabIndex={0} className="btn btn-ghost">
             Menu
           </button>
-          {showMenu && (
-            <div className="flex flex-col mt-2">
-              <ul>
-                <button className="btn btn-ghost">
-                  <Link to="/">Home</Link>
-                </button>
-              </ul>
 
-              <ul>
-                <button className="btn btn-ghost">
-                  <Link to="/alltoys">All Toys</Link>
-                </button>
-              </ul>
-              <ul>
-                <button className="btn btn-ghost">
-                  <Link to="/mytoys">My Toys</Link>
-                </button>
-              </ul>
-              <ul>
-                <button className="btn btn-ghost">
-                  <Link to="/addatoy">Add A Toy</Link>
-                </button>
-              </ul>
-              <ul>
-                <button className="btn btn-ghost">
-                  <Link to="/blog">Blogs</Link>
-                </button>
-              </ul>
-            </div>
-          )}
+          <ul
+            tabIndex={0}
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 absolute top-full left-[-100px]"
+          >
+            <ul>
+              <button className="btn btn-ghost">
+                <Link to="/">Home</Link>
+              </button>
+            </ul>
+
+            <ul>
+              <button className="btn btn-ghost">
+                <Link to="/alltoys">All Toys</Link>
+              </button>
+            </ul>
+            <ul>
+              <button className="btn btn-ghost">
+                <Link to="/mytoys">My Toys</Link>
+              </button>
+            </ul>
+            <ul>
+              <button className="btn btn-ghost">
+                <Link to="/addatoy">Add A Toy</Link>
+              </button>
+            </ul>
+            <ul>
+              <button className="btn btn-ghost">
+                <Link to="/blog">Blogs</Link>
+              </button>
+            </ul>
+          </ul>
         </div>
         <div className="hidden md:block grow">
           <button className="btn btn-ghost mr-2">
@@ -97,10 +99,13 @@ const Navbar = () => {
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <p>{user?.displayName}</p>
+                  <p className="text-pink-500 font-bold">{user?.displayName}</p>
                 </li>
                 <li>
-                  <a>Settings</a>
+                  <p>
+                    {" "}
+                    <Link to="/mytoys">My Toys</Link>
+                  </p>
                 </li>
                 <li>
                   <button onClick={handleLogOut}>Log Out</button>

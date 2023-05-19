@@ -54,7 +54,7 @@ const LoginPage = () => {
               <span>Password</span>
               <input
                 onChange={(e) => setPassword(e.target.value)}
-                type="password"
+                type={`${showPassword ? "text" : "password"}`}
                 placeholder="xxxxxxxxx"
                 className="input input-bordered"
                 required

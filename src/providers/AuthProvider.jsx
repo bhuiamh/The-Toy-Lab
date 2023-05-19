@@ -9,9 +9,12 @@ import {
   signInWithPopup,
   GithubAuthProvider,
   GoogleAuthProvider,
+  updateProfile,
 } from "firebase/auth";
 import { useState } from "react";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
+
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
@@ -30,9 +33,24 @@ const AuthProvider = ({ children }) => {
   const loginUser = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
-
+  const handleUpdateProfile = async (name, image) => {
+    try {
+      await updateProfile(auth.currentUser, {
+        displayName: name,
+        photoURL: image,
+      });
+      Swal.fire("Profile update successful");
+    } catch (error) {
+      const toastError = "Profile update error:" + error.message;
+      Swal.fire(toastError);
+    }
+  };
   const googleSignIn = () => {
     return signInWithPopup(auth, googleProvider);
+  };
+
+  const githubSignIn = () => {
+    return signInWithPopup(auth, gitHubProvider);
   };
 
   const logOut = () => {
@@ -54,6 +72,8 @@ const AuthProvider = ({ children }) => {
     logOut,
     loginUser,
     googleSignIn,
+    githubSignIn,
+    handleUpdateProfile,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

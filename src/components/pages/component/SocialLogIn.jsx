@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const SocialLogIn = () => {
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, githubSignIn } = useContext(AuthContext);
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
@@ -10,6 +10,16 @@ const SocialLogIn = () => {
       })
       .catch((error) => {
         console.log(error.message);
+      });
+  };
+  const handleGitHubLogIn = () => {
+    githubSignIn()
+      .then((result) => {
+        const user = result.user;
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log("Social Login", errorMessage);
       });
   };
   return (
@@ -22,7 +32,7 @@ const SocialLogIn = () => {
           </button>
         </div>
         <div className="w-full">
-          <button onClick={handleGoogleSignIn} className="btn btn-outline">
+          <button onClick={handleGitHubLogIn} className="btn btn-outline">
             Login With Github
           </button>
         </div>
