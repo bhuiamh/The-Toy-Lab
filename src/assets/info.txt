@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: LeckerliOne-Regular
+font link: https://fonts.google.com/specimen/Leckerli+One
+font author: Gesine Todt
+font author site: http://www.gesine-todt.de/
+Slogan Font: Aleo-Light.otf
+
+icon designer: Andrejs Kirma
+icon designer link: /andrejs
+        
+{"bg":"transparent","icon-gradient-0":"#51A4FB","icon-gradient-1":"#51A4FB","font":"#000000","slogan":"#141414"}
+      
