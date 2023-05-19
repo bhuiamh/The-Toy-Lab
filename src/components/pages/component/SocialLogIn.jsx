@@ -1,23 +1,23 @@
 import { useContext } from "react";
-// import { AuthContext } from "../../../providers/AuthProvider";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const SocialLogIn = () => {
-  //   const { googleSignIn } = useContext(AuthContext);
-  //   const handleGoogleSignIn = () => {
-  //     googleSignIn()
-  //       .then((result) => {
-  //         console.log(result.user);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error.message);
-  //       });
-  //   };
+  const { googleSignIn } = useContext(AuthContext);
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div className="mt-9">
       <div className="divider">Or login with social media</div>
       <div className="text-center">
         <button
-          //   onClick={handleGoogleSignIn}
+          onClick={handleGoogleSignIn}
           className="btn btn-circle btn-outline"
         >
           G
