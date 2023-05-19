@@ -8,6 +8,8 @@ const LoginPage = () => {
   const { loginUser } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const handleLogin = (event) => {
     event.preventDefault();
     if ((email, password)) {
@@ -50,6 +52,15 @@ const LoginPage = () => {
                 className="input input-bordered"
                 required
               />
+              <button
+                className={`btn  ${
+                  showPassword ? "btn-secondary" : "btn-primary"
+                }`}
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
             </label>
           </div>
 
