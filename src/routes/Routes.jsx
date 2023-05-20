@@ -9,11 +9,27 @@ import Footer from "../components/pages/shared/Footer";
 import AllToys from "../components/pages/component/AllToys";
 import Main from "../components/pages/Main/Main";
 import ToysLayout from "../components/pages/component/ToysLayout";
+import FlashSaleBanner from "../components/pages/component/FlashSaleBanner";
+import Carousel from "../components/pages/component/Carousel";
+import AboutUs from "../components/pages/component/AboutUs";
+import FeedbackPage from "../components/pages/component/FeedbackPage";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
     children: [
+      {
+        path: "/",
+        element: (
+          <div>
+            <FlashSaleBanner></FlashSaleBanner>
+            <Carousel></Carousel>
+            <AboutUs></AboutUs>
+            <FeedbackPage></FeedbackPage>
+          </div>
+        ),
+      },
+
       {
         path: "/alltoys",
         element: <AllToys></AllToys>,
