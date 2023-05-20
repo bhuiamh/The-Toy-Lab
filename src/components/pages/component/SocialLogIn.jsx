@@ -27,12 +27,18 @@ const SocialLogIn = () => {
       <div className="divider">Or login with social media</div>
       <div className="flex mx-3 gap-2">
         <div className="w-full">
-          <button onClick={handleGoogleSignIn} className="btn btn-outline">
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn btn-outline hover:bg-pink-400 text-yellow-500"
+          >
             Login With Google
           </button>
         </div>
         <div className="w-full">
-          <button onClick={handleGitHubLogIn} className="btn btn-outline">
+          <button
+            onClick={handleGitHubLogIn}
+            className="btn btn-outline hover:bg-pink-400 text-blue-400"
+          >
             Login With Github
           </button>
         </div>
