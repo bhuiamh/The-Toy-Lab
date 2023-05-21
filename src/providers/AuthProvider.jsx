@@ -40,10 +40,22 @@ const AuthProvider = ({ children }) => {
         displayName: name,
         photoURL: image,
       });
-      Swal.fire("Profile update successful");
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Profile Update Successful",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } catch (error) {
-      const toastError = "Profile update error:" + error.message;
-      Swal.fire(toastError);
+      const toastError = "Profile update error:";
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: toastError,
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   };
   const googleSignIn = () => {
@@ -66,7 +78,6 @@ const AuthProvider = ({ children }) => {
         const loggedUser = {
           email: currentUser.email,
         };
-        console.log("current user ", currentUser);
 
         fetch("http://localhost:5000/jwt", {
           method: "POST",
@@ -77,8 +88,6 @@ const AuthProvider = ({ children }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("jwt response", data);
-
             localStorage.setItem("The-Toy-Lab-Token", data.token);
           });
       } else {

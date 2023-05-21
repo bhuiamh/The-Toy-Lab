@@ -15,13 +15,24 @@ const LoginPage = () => {
     if ((email, password)) {
       loginUser(email, password)
         .then((result) => {
-          console.log(user.photoURL);
-          Swal.fire("Login Successful");
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Login Successfull",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         })
         .catch((error) => {
-          Swal.fire("Failed", ":", error.message);
+          const message = error.message;
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: message,
+            showConfirmButton: false,
+            timer: 1500,
+          });
         });
-      console.log(email, password);
     }
   };
   const navigate = useNavigate();

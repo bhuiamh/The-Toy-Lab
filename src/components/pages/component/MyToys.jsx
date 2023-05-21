@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import MyToy from "./MyToy";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -24,14 +25,18 @@ const MyToys = () => {
           },
         });
         const data = await response.json();
-        console.log("data from Mytoys", data);
+
         if (!data.error) {
           setToys(data);
-        } else {
-          alert("Hey, Who Are You");
         }
       } catch (error) {
-        console.log("Error fetching data:", error);
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Error Fetching Data",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     };
 
@@ -62,9 +67,14 @@ const MyToys = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.deletedCount > 0) {
-            alert("deleted successful");
+            Swal.fire({
+              position: "top-end",
+              icon: "error",
+              title: "Toy Deleted Successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
             const remaining = toys.filter((toy) => toy._id !== id);
             setToys(remaining);
           }

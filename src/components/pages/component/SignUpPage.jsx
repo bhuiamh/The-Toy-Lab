@@ -20,19 +20,43 @@ function SignUpPage() {
     setError("");
     if (!/^(?=.*[0-9])/.test(password)) {
       setError("⚠️ Password must have at least one number");
-      Swal.fire.error(error);
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: error,
+        showConfirmButton: false,
+        timer: 1500,
+      });
       return;
     } else if (!/^(?=.*[A-Z])/.test(password)) {
       setError("⚠️ Password must have at least one uppercase letter");
-      Swal.fire.error(error);
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: error,
+        showConfirmButton: false,
+        timer: 1500,
+      });
       return;
     } else if (!/^(?=.*[@$!%*#?&])/.test(password)) {
       setError("⚠️ Password must have at least one special character.");
-      Swal.fire.error(error);
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: error,
+        showConfirmButton: false,
+        timer: 1500,
+      });
       return;
     } else if (!/^(?=.{8,})/.test(password)) {
       setError("⚠️ Password must be at least 8 characters long.");
-      Swal.fire.error(error);
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: error,
+        showConfirmButton: false,
+        timer: 1500,
+      });
       return;
     }
 
@@ -40,12 +64,21 @@ function SignUpPage() {
       try {
         await registerUser(email, password);
         await handleUpdateProfile(name, image);
-        Swal.fire.success("Registration and profile update successful");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Registration and profile update successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       } catch (error) {
-        Swal.fire.error(
-          "Registration and profile update error:",
-          error.message
-        );
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: error.message,
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     }
   };

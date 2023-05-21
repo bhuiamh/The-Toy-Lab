@@ -1,25 +1,50 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const SocialLogIn = () => {
   const { googleSignIn, githubSignIn } = useContext(AuthContext);
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
-        console.log(result.user);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Google Login Successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
-        console.log(error.message);
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: error.message,
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
   };
   const handleGitHubLogIn = () => {
     githubSignIn()
       .then((result) => {
-        const user = result.user;
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "GitHub Login Successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log("Social Login", errorMessage);
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: errorMessage,
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
   };
   return (

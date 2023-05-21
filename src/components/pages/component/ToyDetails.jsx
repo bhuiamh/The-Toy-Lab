@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import StarRatings from "react-star-ratings";
+import Swal from "sweetalert2";
 
 const ToyDetails = () => {
   const { id } = useParams();
@@ -13,7 +14,13 @@ const ToyDetails = () => {
         const data = await response.json();
         setToyDetails(data);
       } catch (error) {
-        console.error("Error fetching toy details:", error);
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: error.message,
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     };
 
@@ -75,11 +82,6 @@ const ToyDetails = () => {
                   </span>
                 </p>
               </div>
-            </div>
-
-            <div className="w-full gap-4 flex">
-              <button className="btn btn-primary w-1/2 mt-2">Delete</button>
-              <button className="btn btn-primary w-1/2 mt-2">Edit</button>
             </div>
           </div>
         </div>
