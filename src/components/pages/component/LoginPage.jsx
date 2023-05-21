@@ -37,8 +37,8 @@ const LoginPage = () => {
           Please Login
         </h2>
         <form className="">
-          <div className="form-control">
-            <label className="input-group justify-center">
+          <div className="form-control w-full">
+            <label className="input-group justify-center w-full">
               <span>Email</span>
               <input
                 onChange={(e) => setEmail(e.target.value)}

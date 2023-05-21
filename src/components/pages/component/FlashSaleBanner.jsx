@@ -7,14 +7,12 @@ const FlashSaleBanner = () => {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    // Set your target date and time for the countdown
     const targetDate = new Date("2023-06-10T00:00:00Z").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const timeDifference = targetDate - now;
 
-      // Calculate the remaining days, hours, minutes, and seconds
       const remainingDays = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
       const remainingHours = Math.floor(
         (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
@@ -31,7 +29,6 @@ const FlashSaleBanner = () => {
       setMinutes(remainingMinutes);
       setSeconds(remainingSeconds);
 
-      // If the countdown ends, clear the interval
       if (timeDifference < 0) {
         clearInterval(interval);
       }

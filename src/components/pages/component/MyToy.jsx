@@ -1,8 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { FaCheck, FaPen, FaTimes } from "react-icons/fa";
 import StarRatings from "react-star-ratings";
 
-const Toys = ({ toys, serialNumber }) => {
+const MyToy = ({
+  toys,
+  serialNumber,
+  handleDelete,
+  handleAddConfirm,
+  added,
+}) => {
   const {
     _id,
     seller,
@@ -69,14 +75,26 @@ const Toys = ({ toys, serialNumber }) => {
           </div>
         </td>
         <th>
-          <Link to={`/alltoys/${toys?._id}`}>
-            {" "}
-            <button className="btn btn-ghost btn-xs">details</button>
-          </Link>
+          <button
+            onClick={() => handleDelete(_id)}
+            className="btn btn-circle  btn-outline mr-2"
+          >
+            <FaTimes className="text-2xl"></FaTimes>
+          </button>
+          <button
+            onClick={() => handleAddConfirm(_id)}
+            className="btn btn-circle btn-outline"
+          >
+            {!added ? (
+              <FaPen className="text-2xl"></FaPen>
+            ) : (
+              <FaCheck className="text-2xl"></FaCheck>
+            )}
+          </button>
         </th>
       </tr>
     </tbody>
   );
 };
 
-export default Toys;
+export default MyToy;

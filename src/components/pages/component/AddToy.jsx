@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import namePhoto from "../../../assets/namePhoto.svg";
 import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -37,13 +38,24 @@ const AddToy = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Something Went Wrong!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         if (data.insertedId) {
-          alert("Added toy successfully");
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Toy Added Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       });
 
-    console.log(addedToys);
     setPictureUrl("");
     setName("");
     setSellerName("");
