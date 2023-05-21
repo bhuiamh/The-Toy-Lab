@@ -11,7 +11,7 @@ const MyToys = () => {
   const [showAllToys, setShowAllToys] = useState(false);
   const [added, setAdded] = useState(false);
   const toysPerPage = 6;
-  const url = `http://localhost:5000/mytoys?email=${user?.email}`;
+  const url = `https://the-toy-lab-server.vercel.app/mytoys?email=${user?.email}`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,7 +62,7 @@ const MyToys = () => {
   const handleDelete = (id) => {
     const proceed = confirm("Are You sure you want to delete");
     if (proceed) {
-      fetch(`http://localhost:5000/mytoys/${id}`, {
+      fetch(`https://the-toy-lab-server.vercel.app/mytoys/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

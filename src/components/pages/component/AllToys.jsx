@@ -9,7 +9,7 @@ const AllToys = () => {
   const toysPerPage = 6;
 
   useEffect(() => {
-    fetch("http://localhost:5000/alltoys")
+    fetch("https://the-toy-lab-server.vercel.app/alltoys")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
