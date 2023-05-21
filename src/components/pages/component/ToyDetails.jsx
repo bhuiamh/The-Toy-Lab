@@ -57,7 +57,7 @@ const ToyDetails = () => {
               <div>
                 <p>
                   <StarRatings
-                    rating={toyDetails.ratings}
+                    rating={Number(toyDetails.ratings)}
                     starRatedColor="green"
                     starEmptyColor="lightgray"
                     numberOfStars={5}

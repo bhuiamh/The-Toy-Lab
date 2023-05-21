@@ -41,7 +41,7 @@ const Toys = ({ toys, serialNumber }) => {
           <br />
           <span className="badge badge-ghost badge-sm p-3">
             <StarRatings
-              rating={ratings}
+              rating={Number(ratings)}
               starRatedColor="green"
               starEmptyColor="lightgray"
               numberOfStars={5}
