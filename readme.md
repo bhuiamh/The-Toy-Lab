@@ -1,3 +1,8 @@
+
+Live Link: https://the-toy-lab.web.app
+Client Site Repo: https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-client-side-bhuiamh
+Server Site Repo: https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-server-side-bhuiamh
+
 ## LoginPage Component
 
 This is a React component that represents a login page for The Toy Lab application. It allows users to log in using their email and password.
