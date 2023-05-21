@@ -10,7 +10,9 @@ const ToyDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/alltoys/${id}`);
+        const response = await fetch(
+          `https://the-toy-lab-server.vercel.app/alltoys/${id}`
+        );
         const data = await response.json();
         setToyDetails(data);
       } catch (error) {
