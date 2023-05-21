@@ -108,6 +108,12 @@ const Navbar = () => {
                   </p>
                 </li>
                 <li>
+                  <p>
+                    {" "}
+                    <Link to="/addatoy">Add a Toy</Link>
+                  </p>
+                </li>
+                <li>
                   <button onClick={handleLogOut}>Log Out</button>
                 </li>
               </ul>
