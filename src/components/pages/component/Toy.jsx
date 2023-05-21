@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 
 const Toy = ({ toy }) => {
@@ -48,7 +49,9 @@ const Toy = ({ toy }) => {
         </div>
 
         <div className="card-actions justify-end ">
-          <button className="btn btn-primary w-full mt-2">Details</button>
+          <Link to={`/alltoys/${toy?._id}`}>
+            <button className="btn btn-primary w-full mt-2">Details</button>
+          </Link>
         </div>
       </div>
     </div>

@@ -13,6 +13,7 @@ import FlashSaleBanner from "../components/pages/component/FlashSaleBanner";
 import Carousel from "../components/pages/component/Carousel";
 import AboutUs from "../components/pages/component/AboutUs";
 import FeedbackPage from "../components/pages/component/FeedbackPage";
+import ToyDetails from "../components/pages/component/ToyDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
           <div>
             <FlashSaleBanner></FlashSaleBanner>
             <Carousel></Carousel>
+            <AllToys></AllToys>
             <AboutUs></AboutUs>
             <FeedbackPage></FeedbackPage>
           </div>
@@ -34,14 +36,22 @@ const router = createBrowserRouter([
         path: "/alltoys",
         element: <AllToys></AllToys>,
       },
-      { path: "/addatoy", element: <AddToy></AddToy> },
+      {
+        path: "/addatoy",
+        element: (
+          <PrivateRoute>
+            <AddToy></AddToy>
+            <Footer></Footer>
+          </PrivateRoute>
+        ),
+      },
       { path: "/blog", element: <Blogs></Blogs> },
       { path: "/login", element: <LoginPage></LoginPage> },
       { path: "/register", element: <SignUpPage></SignUpPage> },
     ],
   },
   {
-    path: "",
+    path: "alltoys",
     element: <ToysLayout></ToysLayout>,
     children: [
       {
@@ -53,9 +63,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: ":id",
+        path: "/alltoys:id",
         element: (
           <PrivateRoute>
+            <ToyDetails></ToyDetails>
             <Footer></Footer>
           </PrivateRoute>
         ),

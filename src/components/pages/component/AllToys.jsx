@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Toy from "./Toy";
+import Toys from "./Toys";
+import { Link } from "react-router-dom";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
@@ -31,11 +32,24 @@ const AllToys = () => {
 
   return (
     <div className="mx-5 px-5 my-10 place-content-center">
-      <div className="grid grid-cols-1 md:grid-cols-3">
-        {displayedToys.map((toy) => (
-          <Toy key={toy._id} toy={toy} />
-        ))}
+      <div className="overflow-x-auto w-full">
+        <table className="table w-full">
+          <thead>
+            <tr>
+              <th></th>
+              <th className="pl-8">Name</th>
+              <th>Details</th>
+              <th>Quantity</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          {displayedToys.map((toys, index) => (
+            <Toys key={toys._id} toys={toys} serialNumber={index + 1} />
+          ))}
+        </table>
       </div>
+
       <div className="flex justify-center">
         {!showAllToys && toys.length > toysPerPage && (
           <button
@@ -53,6 +67,11 @@ const AllToys = () => {
             Show Less
           </button>
         )}
+      </div>
+      <div className="text-center mt-10">
+        <button className="w-1/2 btn btn-outline text-blue-500">
+          <Link to="/">Home</Link>
+        </button>
       </div>
     </div>
   );
