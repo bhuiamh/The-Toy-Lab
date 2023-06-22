@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Tooltip from "@mui/material/Tooltip";
 
 import { AuthContext } from "../../../providers/AuthProvider";
+import { FaSignInAlt } from "react-icons/fa";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [showMenu, setShowMenu] = useState(false);
@@ -114,7 +115,9 @@ const Navbar = () => {
                   </p>
                 </li>
                 <li>
-                  <button onClick={handleLogOut}>Log Out</button>
+                  <button onClick={handleLogOut}>
+                    Log Out <FaSignInAlt></FaSignInAlt>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -122,7 +125,9 @@ const Navbar = () => {
         ) : (
           <button className="btn btn-ghost">
             {" "}
-            <Link to="/login">Login</Link>
+            <Link to="/login">
+              Login <FaSignInAlt></FaSignInAlt>
+            </Link>
           </button>
         )}
       </div>

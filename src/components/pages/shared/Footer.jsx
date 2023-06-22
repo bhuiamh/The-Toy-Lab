@@ -49,7 +49,7 @@ const Footer = () => {
             <div className="mb-3">
               <img src={namePhoto} alt="" />
             </div>
-            <div className="flex justify-end">
+            <div className="flex justify-">
               <a href="https://twitter.com" className="me-3 text-light">
                 <FaTwitter />
               </a>

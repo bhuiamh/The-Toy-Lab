@@ -7,7 +7,7 @@ const FlashSaleBanner = () => {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const targetDate = new Date("2023-06-10T00:00:00Z").getTime();
+    const targetDate = new Date("2023-09-10T00:00:00Z").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();

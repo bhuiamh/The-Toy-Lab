@@ -29,14 +29,18 @@ const Toy = ({ toy }) => {
         <div className="grid grid-cols-3">
           <p className="text-lg font-bold text-green-700">${price}</p>
           <p>
-            <StarRatings
-              rating={ratings}
-              starRatedColor="green"
-              starEmptyColor="lightgray"
-              numberOfStars={5}
-              starDimension="15px"
-              starSpacing="2px"
-            />
+            {toy ? (
+              <StarRatings
+                rating={Number(ratings)}
+                starRatedColor="green"
+                starEmptyColor="lightgray"
+                numberOfStars={5}
+                starDimension="15px"
+                starSpacing="2px"
+              />
+            ) : (
+              "Rating not available"
+            )}
           </p>
           <div className="indicator">
             <span className="indicator-item badge badge-secondary font-bold bg-pink-500">

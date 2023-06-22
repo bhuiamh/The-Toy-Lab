@@ -1,72 +1,42 @@
-import React, { useEffect, useState } from "react";
-import Toys from "./Toys";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import Toy from "./Toy";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
-  const [displayedToys, setDisplayedToys] = useState([]);
-  const [showAllToys, setShowAllToys] = useState(false);
-  const toysPerPage = 6;
+  const loading = useRef(true);
 
   useEffect(() => {
     fetch("https://the-toy-lab-server.vercel.app/alltoys")
       .then((res) => res.json())
-      .then((data) => setToys(data));
+      .then((data) => {
+        setToys(data);
+        loading.current = false;
+      });
   }, []);
-
-  useEffect(() => {
-    if (showAllToys) {
-      setDisplayedToys(toys);
-    } else {
-      setDisplayedToys(toys.slice(0, toysPerPage));
-    }
-  }, [toys, showAllToys]);
-
-  const handleViewMore = () => {
-    setShowAllToys(true);
-  };
-
-  const handleShowLess = () => {
-    setShowAllToys(false);
-  };
+  console.log(toys);
 
   return (
     <div className="mx-5 px-5 my-10 place-content-center">
-      <div className="overflow-x-auto w-full">
-        <table className="table w-full">
-          <thead>
-            <tr>
-              <th></th>
-              <th className="pl-8">Name</th>
-              <th>Details</th>
-              <th>Quantity</th>
-              <th></th>
-            </tr>
-          </thead>
-
-          {displayedToys.map((toys, index) => (
-            <Toys key={toys._id} toys={toys} serialNumber={index + 1} />
-          ))}
-        </table>
+      <div className="grid md:grid-cols-3  grid-cols-1">
+        {loading.current ? (
+          <div
+            className="radial-progress"
+            style={{
+              "--value": "70",
+              "--size": "12rem",
+              "--thickness": "2rem",
+            }}
+          >
+            70%
+          </div>
+        ) : (
+          toys.map((toy) => <Toy key={toy._id} toy={toy} />)
+        )}
       </div>
 
       <div className="flex justify-center">
-        {!showAllToys && toys.length > toysPerPage && (
-          <button
-            onClick={handleViewMore}
-            className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-blue-600 focus:outline-none"
-          >
-            View More
-          </button>
-        )}
-        {showAllToys && (
-          <button
-            onClick={handleShowLess}
-            className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-blue-600 focus:outline-none"
-          >
-            Show Less
-          </button>
-        )}
+        <button>Pagination Will Appear here</button>
       </div>
       <div className="text-center mt-10">
         <button className="w-1/2 btn btn-outline text-blue-500">

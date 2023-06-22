@@ -14,10 +14,12 @@ import Carousel from "../components/pages/component/Carousel";
 import AboutUs from "../components/pages/component/AboutUs";
 import FeedbackPage from "../components/pages/component/FeedbackPage";
 import ToyDetails from "../components/pages/component/ToyDetails";
+import ErrorPage from "../components/pages/component/ErrorPage/ErrorPage";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
