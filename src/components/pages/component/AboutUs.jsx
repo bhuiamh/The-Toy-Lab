@@ -16,8 +16,14 @@ const AboutUs = () => {
           </div>
           <div className="md:w-1/2">
             <div className="flex items-center">
-              <h2 className="text-4xl font-bold mb-4 mr-2">Welcome to </h2>
-              <img className="h-9 text-blue-400" src={namePhoto} alt="" />
+              <h2 className="md:text-4xl text-2xl font-bold mb-4 mr-2">
+                Welcome to
+              </h2>
+              <img
+                className="md:h-9 h-5 text-blue-400"
+                src={namePhoto}
+                alt=""
+              />
             </div>
             <p className="text-lg mb-6">
               At The Thy Lab, we believe in the power of play and imagination.

@@ -68,7 +68,7 @@ const LoginPage = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   type={`${showPassword ? "text" : "password"}`}
                   placeholder="xxxxxxxxx"
-                  className="input input-bordered"
+                  className="input input-bordered w-32 md:w-full"
                   required
                 />
                 <button

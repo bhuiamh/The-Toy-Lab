@@ -14,7 +14,7 @@ const Toy = ({ toy }) => {
     toyImg,
   } = toy;
   return (
-    <div className="card w-96 bg-base-100 shadow-2xl my-8">
+    <div className="card w-72 md:w-96 bg-base-100 shadow-2xl my-8">
       <figure className="h-56 w-full object-cover mx-auto rounded-t-2xl">
         <img className="" src={toyImg} alt="Shoes" />
       </figure>
@@ -27,7 +27,7 @@ const Toy = ({ toy }) => {
         </p>
         <p>{subCategory}</p>
         <div className="grid grid-cols-3">
-          <p className="text-lg font-bold text-green-700">${price}</p>
+          <p className="text-lg font-bold text-green-700">{price}</p>
           <p>
             {toy ? (
               <StarRatings
