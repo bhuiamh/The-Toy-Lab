@@ -19,6 +19,7 @@ import FaqPage from "../components/pages/component/faq/FaqPage";
 import GiftCard from "../components/pages/component/GiftCard";
 import EducationalResources from "../components/pages/component/EducationalResources";
 import Testimonials from "../components/pages/component/Testimonials";
+import SpecialOffers from "../components/pages/component/SpecialOffers";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
             <FlashSaleBanner></FlashSaleBanner>
             <GiftCard></GiftCard>
             <Carousel></Carousel>
+            <SpecialOffers></SpecialOffers>
             <AllToys></AllToys>
             <EducationalResources></EducationalResources>
             <Testimonials></Testimonials>

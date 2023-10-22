@@ -16,7 +16,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="m-6 p-4 md:py-8 md:px-12 shadow-2xl rounded-lg bg-gradient-to-r from-blue-300 to-purple-400text-white bg-opacity-80">
+    <section className="m-6 p-4 md:py-8 md:px-12 shadow-2xl rounded-lg bg-gradient-to-r from-blue-300 to-purple-400 bg-opacity-80">
       <div className="container mx-auto">
         <h2 className="text-3xl font-semibold text-center mb-6">
           Customer Reviews
