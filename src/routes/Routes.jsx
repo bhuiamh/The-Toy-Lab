@@ -18,6 +18,7 @@ import ErrorPage from "../components/pages/component/ErrorPage/ErrorPage";
 import FaqPage from "../components/pages/component/faq/FaqPage";
 import GiftCard from "../components/pages/component/GiftCard";
 import EducationalResources from "../components/pages/component/EducationalResources";
+import Testimonials from "../components/pages/component/Testimonials";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
             <Carousel></Carousel>
             <AllToys></AllToys>
             <EducationalResources></EducationalResources>
+            <Testimonials></Testimonials>
             <AboutUs></AboutUs>
             <FaqPage></FaqPage>
             <FeedbackPage></FeedbackPage>

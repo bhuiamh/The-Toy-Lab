@@ -17,7 +17,7 @@ const EducationalResources = () => {
   ];
 
   return (
-    <section className="bg-gray-100 py-10 m-6 p-4 md:py-8 md:px-12 shadow-2xl rounded-lg">
+    <section className="bg-gradient-to-r from-teal-400 to-cyan-500 py-10 m-6 p-4 md:py-8 md:px-12 shadow-2xl rounded-lg bg-opacity-80">
       <div className="container mx-auto">
         <h2 className="text-3xl font-semibold text-center mb-6">
           Educational Resources
