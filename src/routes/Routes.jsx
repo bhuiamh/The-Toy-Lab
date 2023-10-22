@@ -16,6 +16,8 @@ import FeedbackPage from "../components/pages/component/FeedbackPage";
 import ToyDetails from "../components/pages/component/ToyDetails";
 import ErrorPage from "../components/pages/component/ErrorPage/ErrorPage";
 import FaqPage from "../components/pages/component/faq/FaqPage";
+import GiftCard from "../components/pages/component/GiftCard";
+import EducationalResources from "../components/pages/component/EducationalResources";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,8 +29,10 @@ const router = createBrowserRouter([
         element: (
           <div>
             <FlashSaleBanner></FlashSaleBanner>
+            <GiftCard></GiftCard>
             <Carousel></Carousel>
             <AllToys></AllToys>
+            <EducationalResources></EducationalResources>
             <AboutUs></AboutUs>
             <FaqPage></FaqPage>
             <FeedbackPage></FeedbackPage>
