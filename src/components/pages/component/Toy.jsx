@@ -27,7 +27,7 @@ const Toy = ({ toy }) => {
         </p>
         <p>{subCategory}</p>
         <div className="grid grid-cols-3">
-          <p className="text-lg font-bold text-green-700">{price}</p>
+          <p className="text-lg font-bold text-green-700">${price}</p>
           <p>
             {toy ? (
               <StarRatings
