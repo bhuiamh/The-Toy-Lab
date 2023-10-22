@@ -20,6 +20,7 @@ import GiftCard from "../components/pages/component/GiftCard";
 import EducationalResources from "../components/pages/component/EducationalResources";
 import Testimonials from "../components/pages/component/Testimonials";
 import SpecialOffers from "../components/pages/component/SpecialOffers";
+import Forum from "../components/pages/component/Forum";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,8 +38,10 @@ const router = createBrowserRouter([
             <AllToys></AllToys>
             <EducationalResources></EducationalResources>
             <Testimonials></Testimonials>
+
             <AboutUs></AboutUs>
             <FaqPage></FaqPage>
+            <Forum></Forum>
             <FeedbackPage></FeedbackPage>
           </div>
         ),

@@ -27,7 +27,7 @@ const GiftCard = () => {
       </div>
       <button
         onClick={giftMessage}
-        className="bg-yellow-400 text-gray-800 hover:bg-yellow-500 hover:text-gray-900 rounded-full py-2 px-6 text-lg font-semibold transition duration-300 transform hover:scale-105"
+        className="bg-pink-400 text-gray-800 hover:bg-pink-500 hover:text-gray-900 rounded-full py-2 px-6 text-lg font-semibold transition duration-300 transform hover:scale-105"
       >
         Buy Gift Card
       </button>

@@ -72,7 +72,7 @@ const FeedbackPage = () => {
               <button
                 onClick={handleSubmit}
                 type="submit"
-                className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+                className="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 focus:outline-none focus:bg-pink-600"
               >
                 Submit
               </button>
